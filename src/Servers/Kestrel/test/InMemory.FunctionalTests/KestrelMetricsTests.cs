@@ -289,7 +289,7 @@ public class KestrelMetricsTests : TestApplicationErrorLoggerLoggedTest
         var testMeterFactory = new TestMeterFactory();
         using var connectionDuration = new InstrumentRecorder<double>(new TestMeterRegistry(testMeterFactory.Meters), "Microsoft.AspNetCore.Server.Kestrel", "kestrel-connection-duration");
         using var currentConnections = new InstrumentRecorder<long>(new TestMeterRegistry(testMeterFactory.Meters), "Microsoft.AspNetCore.Server.Kestrel", "kestrel-current-connections");
-        using var currentUpgradedRequests = new InstrumentRecorder<long>(new TestMeterRegistry(testMeterFactory.Meters), "Microsoft.AspNetCore.Server.Kestrel", "current-upgraded-connections");
+        using var currentUpgradedRequests = new InstrumentRecorder<long>(new TestMeterRegistry(testMeterFactory.Meters), "Microsoft.AspNetCore.Server.Kestrel", "kestrel-current-upgraded-connections");
 
         var serviceContext = new TestServiceContext(LoggerFactory, metrics: new KestrelMetrics(testMeterFactory));
 
